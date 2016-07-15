@@ -1,0 +1,53 @@
+{%extends 'custom/base.html'%}
+{%load staticfiles%}
+{% load i18n %}
+{% if error_message%}
+{{error_message}}
+{%endif%}
+{%block title%}{% trans "Login" %}{%endblock%}
+{% block content %}
+
+		{%include 'custom/header.html'%}
+<div class='wrapper-holl'>		
+<div class="container">
+    <div class="row vertical-offset-100">
+    	<div class="col-md-4 col-md-offset-4">
+    		<div class="panel panel-default">
+			  	<div class="panel-heading">
+						<h3 class="panel-title">{% trans "Login form"%}</h3>
+			 	</div>
+			  	<div class="panel-body">
+						{%if error_message%}
+						<h4 class='alert'>{{error_message}}</h4>
+						{%endif%}
+			    	<form accept-charset="UTF-8" role="form" action='{% url "custom:check-login"%}' method='POST'>
+						{%csrf_token%}
+                    <fieldset>
+			    	  	<div class="form-group">
+								<input class="form-control" placeholder="{%trans 'Email' %}" name="email" type="text">
+			    		</div>
+			    		<div class="form-group">
+								<input class="form-control" placeholder="{% trans 'Password'%}" name="password" type="password" value="">
+			    		</div>
+					<div class='row'>
+							<div class='col-lg-12'>
+			    		<div class="pull-left checkbox">
+			    	    	<label>
+									<input name="remember" type="checkbox" value="Remember Me">{% trans "Remember Me"%}
+			    	    	</label>
+						</div>	
+						<div class='pull-right custom_reset_password'>
+								<a href="{% url 'password_reset_recover'%}" >{% trans "Forget your password?"%}</a>
+						</div>	
+						</div>
+					</div>
+					<button class="btn btn-lg btn-success btn-block" type="submit" >{%trans "Login" %}</button>
+			    	</fieldset>
+			      	</form>
+			    </div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+{% endblock %}
