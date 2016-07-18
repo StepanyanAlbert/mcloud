@@ -8,15 +8,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'bnk99hg#5*v@dr7wl6auw7hd$8)81mjv!ivr*s4!y_!8k!6_d5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-<<<<<<< HEAD
 DEBUG = False
 
 ALLOWED_HOSTS = ['*']
-=======
-DEBUG = True
-
-ALLOWED_HOSTS = []
->>>>>>> 48a22e972706e483092587876eb19290600e8f8d
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -34,7 +28,7 @@ INSTALLED_APPS = [
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-	'django.middleware.locale.LocaleMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -75,14 +69,8 @@ DATABASES = {
     }
 }
 
-<<<<<<< HEAD
 AUTH_USER_MODEL='custom.MyUser'
 LOGIN_URL=reverse_lazy('custom:login')
-=======
-
->>>>>>> 48a22e972706e483092587876eb19290600e8f8d
-# Password validation
-# https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -125,30 +113,13 @@ USE_L10N = True
 
 USE_TZ = True
 
-<<<<<<< HEAD
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-=======
->>>>>>> 48a22e972706e483092587876eb19290600e8f8d
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.9/howto/static-files/
-
-<<<<<<< HEAD
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
-STATIC_URL = '/static/'
-=======
 PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
 STATIC_URL = '/static/' 
->>>>>>> 48a22e972706e483092587876eb19290600e8f8d
 STATICFILES_DIRS = (
 				    os.path.join(PROJECT_ROOT, 'static'),
 
 				)
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 48a22e972706e483092587876eb19290600e8f8d
 MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media')
 MEDIA_URL = '/media/'

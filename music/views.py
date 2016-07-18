@@ -19,7 +19,9 @@ class  CreateAlbum(CreateView):
 		form_class=AlbumForm
 		template_name='music/create_album.html'
 		success_url=reverse_lazy('music:index')
-  		
+
+class AlbumDetailView(DetailView):
+    model = Album
   #  if not request.user.is_authenticated():
 
   #      return render(request, 'music/login.html')
