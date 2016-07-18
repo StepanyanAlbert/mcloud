@@ -1,0 +1,70 @@
+{% extends 'custom/base.html' %}
+{% load i18n%}
+{% block title %}{% trans 'Add a New Album' %}{% endblock %}
+{% block albums_active %}active{% endblock %}
+{% block content%}
+{%include 'custom/header.html'%}
+<div class="container-fluid">
+
+    <div class="row">
+
+        <div class="col-sm-12 col-md-7">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    {% if error_message %}
+					<p><strong>{{  error_message }}</strong></p>
+                    {% endif %}
+                    <form class="form-horizontal" role="form" action="" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+
+		<fieldset>
+
+<legend>{% trans 'Create a new album'%}</legend>
+
+<div class="form-group">
+		{% if form.artist.errors%}
+		{% trans form.artist.errors.as_text %}
+		{%endif%}
+		<div class='col-sm-6'>
+		<label class="control-label" for="id_artist">{% trans form.artist.label %}</label>
+		  {{form.artist}}
+	</div>
+</div>
+<div class="form-group">
+		{% if form.album_title.errors%}
+		{% trans form.album_title.errors.as_text%}
+		{%endif%}
+	<div class='col-sm-6'>
+		<label class="control-label" for="id_album_title">{% trans form.album_title.label%}</label>
+		{{form.album_title}}
+	</div>
+</div>
+
+		<div class="form-group">
+		{% if form.genre.errors%}
+		{% trans form.genre.errors.as_text%}
+		{%endif%}
+				<div class='col-sm-6'>
+					<label class="control-label" for="id_genre">{% trans form.genre.label%}</label>
+					{{form.genre}}
+				</div>
+		</div>
+
+					<div class="form-group">
+							{% if form.album_logo.errors%}
+							{% trans form.album_logo.errors.as_text%}
+					{%endif%}
+								<div class='col-sm-6'>
+									<label class="control-label" for="id_album_logo">{% trans form.album_logo.label%}</label>
+ 								 {{form.album_logo}}
+								</div>
+							</div>
+						<button type="submit" class="btn btn-success">{% trans 'Submit'%}</button>
+					</fieldset>							
+			      </form>
+			 </div>
+           </div>
+       </div>
+    </div>
+</div>
+{% endblock %}

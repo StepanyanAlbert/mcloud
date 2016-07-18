@@ -1,0 +1,7 @@
+{% extends "custom/base.html" %}{% load i18n %}
+{% block title %}{% trans "New password set" %}{% endblock %}
+
+{% block content %}
+<p>{% trans "Your password has successfully been reset. You can use it right now on the login page."%}
+<a href='{%url "login" %}'>{% trans 'Login page'%}</a></p>
+{% endblock %}

@@ -1,0 +1,5 @@
+msgid " Django Custom User Registration Form"
+msgstr "Django custom chech"
+
+msgid "Date of birth"
+msgstr "Datirthe chesdas"

@@ -1,0 +1,88 @@
+{% extends 'custom/base.html'%}
+{% load i18n%}
+{%block title %}{% trans "Registration"%} {%endblock%}
+{%block content%}
+{%include 'custom/header.html'%}
+		<div class="container">
+			<div class="row main">
+				<div class="panel-heading">
+	               <div class="panel-title text-center">
+						   <h1  align='center' class="title">{% trans " Django Custom User Registration Form"%}</h1>
+	               		<hr />
+	               	</div>
+		</div> 
+		<div class="main-login main-center">
+					<form class="form-horizontal" method="POST" action="">
+							{%csrf_token%}
+
+						<div class="form-group">
+							{%if form.email.errors%}
+								<p class='alert-danger'>{% trans form.email.errors.as_text %}</p>
+							{%endif%}
+							<label for="id_email" class="cols-sm-2 control-label">{%trans form.email.label %}</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+									{{form.email}}
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							{%if form.date_of_birth.errors%}
+								<p class='alert-danger'>{% trans form.date_of_birth.errors.as_text %}</p>
+							{%endif%}
+								<label for="id_date_of_birth" class="cols-sm-2 control-label">{%trans form.date_of_birth.label %}</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-calendar fa" aria-hidden="true"></i></span>
+									{{form.date_of_birth}}
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">	
+							{%if form.password1.errors%}
+								<p class='alert-danger'>{%trans  form.password1.errors.as_text %}</p>
+							{%endif%}
+								<label for="id_password1" class="cols-sm-2 control-label">{% trans form.password1.label %}</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+									{{form.password1}}
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							{%if form.password2.errors%}
+								<p  class='alert-danger'>{% trans form.password2.errors.as_text %}</p>
+							{%endif%}
+							<label for="id_password2" class="cols-sm-2 control-label">{% trans form.password2.label %}</label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span>
+									{{form.password2}}
+								</div>
+							</div>
+						</div>
+
+<!--						<div class="form-group">
+							{%if form.captcha.errors%}
+								<p  class='alert-danger'>{% trans  form.captcha.errors.as_text %}</p>
+							{%endif%}
+							<label for="id_captcha" class="cols-sm-2 control-label">{%trans form.captcha.label %}  </label>
+							<div class="cols-sm-10">
+								<div class="input-group">
+									<span class="input-group-addon"><i class="fa fa-hand-o-right fa-lg" aria-hidden="true"></i></span>
+									{{form.captcha}}
+								</div>
+							</div>
+                        </div> -->
+
+								<input type='submit' value='Submit'  class='btn center-block btn-success'>
+					</form>
+				</div>
+			</div>
+		</div>
+	{%endblock%}

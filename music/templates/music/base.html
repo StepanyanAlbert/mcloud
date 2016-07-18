@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head> 
+		{% load staticfiles%}
+		{%load i18n%}
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script  src="https://code.jquery.com/jquery-1.12.4.js" integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU="	  crossorigin="anonymous"></script>
+		<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'>
+    	<link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" href="{%static 'css/style.css'%}">
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+		<script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js'></script>
+		<link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+		<title>{%block title%}{%endblock%}</title>
+	</head>
+	<body>
+	{%block content%}
+		{% endblock %}
+		<script src='{% static "js/script.js"%}'></script>
+		</body>
+</html>
+

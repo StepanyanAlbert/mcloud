@@ -1,0 +1,11 @@
+{% extends 'custom/base.html'%}
+{% load i18n %}
+{%block title%}{% trans "Welcome"%}{%endblock%}
+{%block content%}
+{%include 'custom/header.html'%}
+<h1>{%trans "Welcome"%} {{request.user}}</h1>
+<a href='{{request.path|slice:":3" }}/update/{{request.user.id}}'>{% trans "Update" %}</a>
+			    		
+<!-- <a href="{% url "password_reset_recover" %}" >{% trans "Forget your password?"%}</a>-->
+			    	    
+{% endblock %}

@@ -1,0 +1,24 @@
+{%extends 'custom/base.html'%}
+{% load i18n %}
+{%block title%} Update {%endblock%}
+{%block content%}
+{%include 'custom/header.html'%}
+     <form action="" method="post">{% csrf_token %}
+						<div class="form-group">
+							{%if form.email.errors%}
+								<p class='alert-danger'>{% trans form.email.errors.as_text %}</p>
+							{%endif%}
+					<label for="id_email" class="cols-sm-2 control-label">{%trans form.email.label %}</label>
+									{{form.email}}
+						</div>
+
+					<div class="form-group">
+						{%if form.date_of_birth.errors%}
+							<p class='alert-danger'>{% trans form.date_of_birth.errors.as_text %}</p>
+						{%endif%}
+					<label for="id_email" class="cols-sm-2 control-label">{%trans form.date_of_birth.label %}</label>
+								{{form.date_of_birth}}
+					</div>
+			<input type="submit" value='{%trans "Update"%}' />
+		</form>
+{% endblock %}
