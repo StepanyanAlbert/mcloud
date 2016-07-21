@@ -8,7 +8,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'bnk99hg#5*v@dr7wl6auw7hd$8)81mjv!ivr*s4!y_!8k!6_d5'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG =True 
 
 ALLOWED_HOSTS = ['*']
 
@@ -64,8 +64,12 @@ WSGI_APPLICATION = 'mcloud.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+			'ENGINE':'django.db.backends.mysql',
+			'NAME':'test8',
+			'USER':'root',
+			'PASSWORD':'',
+        #'ENGINE': 'django.db.backends.sqlite3',
+        #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -123,3 +127,12 @@ STATICFILES_DIRS = (
 
 MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media')
 MEDIA_URL = '/media/'
+
+
+#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT =587 
+EMAIL_HOST_USER = '1felisidad1@gmail.com'
+EMAIL_HOST_PASSWORD = 'chelsea666'
+EMAIL_USE_TLS = False
+DEFAULT_FROM_EMAIL = '1felisidad1@gmail.com'

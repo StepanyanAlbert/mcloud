@@ -7,7 +7,9 @@ class Album(models.Model):
     artist = models.CharField(max_length=250)
     album_title = models.CharField(max_length=500)
     genre = models.CharField(max_length=100)
-    album_logo = models.FileField()
+    album_logo = models.ImageField(width_field='image_width', height_field='image_height')
+    image_width=models.PositiveIntegerField(null=True, blank=True, editable=False, default="100")
+    image_height=models.PositiveIntegerField(null=True, blank=True, editable=False, default="100")
     is_favorite = models.BooleanField(default=False)
 
     def __str__(self):
