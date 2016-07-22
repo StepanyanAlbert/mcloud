@@ -1,5 +1,5 @@
 from django import forms
-from simplemathcaptcha.fields import MathCaptchaField
+#from simplemathcaptcha.fields import MathCaptchaField
 from django.contrib import admin
 from django.contrib.auth.models import Group
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
@@ -11,7 +11,7 @@ from django.utils.translation import ugettext as _
 class UserCreationForm(forms.ModelForm):
 		password1 = forms.CharField(label=_('Password'),widget=forms.PasswordInput)
 		password2 = forms.CharField(label=_('Password confirmation'),widget=forms.PasswordInput) 
-		captcha = MathCaptchaField()
+#		captcha = MathCaptchaField()
 		class Meta:
 			model = MyUser
 			fields = ('email', 'date_of_birth')

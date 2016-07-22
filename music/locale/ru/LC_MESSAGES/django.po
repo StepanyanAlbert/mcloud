@@ -1,0 +1,88 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-07-12 21:56+0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+
+msgid "What is MCloud?"
+msgstr "Что такое МКлоуд?"
+
+msgid "Mcloud is an app that allows you to upload and store all of your music on the cloud."
+msgstr "МКлоуд это приложение которое позволяет загрузить и сохранить ваши музыки в облоке ."
+
+msgid "How do I add music?"
+msgstr "Как мне дабавить музыку?"
+
+msgid "First, create a new album by filling out the form on this page. Once an album is created you will be able to add/upload songs."
+msgstr "Во первых надо создать альбом заполняя поля здесь. Как только альбом будет создан вы сможете дабавить/загрузить песни"
+
+msgid "What are some Album logo best practices?"
+msgstr "Какые  лучшие практики создание логотипа Альбома"
+
+msgid "Have a resolution of 512x512"
+msgstr "Иметь резолюция 512*512 "
+
+msgid "Use common image formats such as .JPG, .GIF, or .PNG"
+msgstr "Исползовать стардартные формати рисунок .JPG, .GIF, or .PNG"
+
+msgid "Remain under the 2MB limit."
+msgstr "Иметь  2 Мб․ и меньше обема"
+
+msgid "Square images look best"
+msgstr "Квадратные изображения выглядят лучше"
+
+msgid "View All"
+msgstr "Посмотреть все"
+
+msgid "Favorites"
+msgstr "Предпочитамые"
+
+msgid "Sorry you don't have songs yet!"
+msgstr "Извините,у Вас  пока нету песнь "
+
+msgid "Add new song in existing album"
+msgstr "Добавить новую песню в существующий альбом "
+
+msgid "Create new album"
+msgstr "Содать новый альбом"
+
+msgid "Add a New Album"
+msgstr "Дабавить новых альбом"
+
+msgid "Artist"
+msgstr "Артист"
+
+msgid "Album title"
+msgstr "Название альбома"
+
+msgid "Genre"
+msgstr "Жанр"
+
+msgid "Album logo"
+msgstr "Лого альбома"
+
+msgid "Submit"
+msgstr "Отправить"
+
+msgid "View Details"
+msgstr "Смотреть детали"
+
+msgid "All albums"
+msgstr "Все альбоми"
+
+msgid "Albums"
+msgstr "Альбоми"

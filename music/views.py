@@ -1,7 +1,8 @@
 from django.contrib.auth import authenticate, login
+from django import forms
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
-from django.http import JsonResponse
+from django.http import JsonResponse,HttpResponse
 from django.shortcuts import render, get_object_or_404
 from django.db.models import Q
 from .forms import AlbumForm, SongForm
@@ -12,38 +13,20 @@ from django.core.urlresolvers import reverse_lazy
 
 
 
-AUDIO_FILE_TYPES = ['wav', 'mp3', 'ogg']
-IMAGE_FILE_TYPES = ['png', 'jpg', 'jpeg']
+AUDIO_FILE_TYPES = ['wav', 'mp3', 'ogg','mpeg']
 
 class  CreateAlbum(CreateView):
 		form_class=AlbumForm
 		template_name='music/create_album.html'
 		success_url=reverse_lazy('music:index')
-  		
-  #  if not request.user.is_authenticated():
 
-  #      return render(request, 'music/login.html')
-  #  else:
-  #      form = AlbumForm(request.POST or None, request.FILES or None)
-       # if form.is_valid():
-       #     album = form.save(commit=False)
-       #     album.user = request.user
-       #     album.album_logo = request.FILES['album_logo']
-       #     file_type = album.album_logo.url.split('.')[-1]
-       #     file_type = file_type.lower()
-       #     if file_type not in IMAGE_FILE_TYPES:
-       #         context = {
-       #             'album': album,
-       #             'form': form,
-       #             'error_message': 'Image file must be PNG, JPG, or JPEG',
-       #         }
-       #         return render(request, 'music/create_album.html', context)
-       #     album.save()
-       #     return render(request, 'music/detail.html', {'album': album})
-       # context = {
-       #     "form": form,
-       # }
-       # return render(request, 'music/create_album.html', context)
+class AlbumDetailView(DetailView):
+    model = Album
+
+class CreateSong(CreateView):
+		form_class=SongForm
+		template_name='music/create_song.html'
+		
 
 @login_required
 def create_song(request, album_id):
@@ -73,7 +56,7 @@ def create_song(request, album_id):
             return render(request, 'music/create_song.html', context)
 
         song.save()
-        return render(request, 'music/detail.html', {'album': album})
+        return render(request, 'music/album_detail.html', {'album': album})
     context = {
         'album': album,
         'form': form,
@@ -92,16 +75,8 @@ def delete_song(request, album_id, song_id):
     album = get_object_or_404(Album, pk=album_id)
     song = Song.objects.get(pk=song_id)
     song.delete()
-    return render(request, 'music/detail.html', {'album': album})
+    return render(request, 'music/album_detail.html', {'album': album})
 
-@login_required
-def detail(request, album_id):
-    if not request.user.is_authenticated():
-        return render(request, 'music/login.html')
-    else:
-        user = request.user
-        album = get_object_or_404(Album, pk=album_id)
-        return render(request, 'music/detail.html', {'album': album, 'user': user})
 
 @login_required
 def favorite(request, song_id):
@@ -220,3 +195,30 @@ def songs(request, filter_by):
             'song_list': users_songs,
             'filter_by': filter_by,
         })
+
+def song_create_existing_album(request):
+		get_all_albums=Album.objects.filter(user=request.user)
+		return render(request,'music/selectbox_albums.html',{'albums':get_all_albums})
+		
+def checker(request,fieldname,template_name,kwargs):
+		field=request.POST.get(fieldname,'')
+		if not field:
+				return render(request,template_name,**kwargs)
+
+def cs_album_id(request):
+		get_albums=Album.objects.filter(user=request.user)
+		if request.method=='POST':
+				song_title=request.POST.get('song_title','')
+				song=request.FILES.get('song_file')
+				album_id=request.POST.get('album_id','')
+				checker(request,'song_title','music/selectbox_albums.html',{'valid_error_title':' * This field is required','albums':get_albums})
+				checker(request,'album_id','music/selectbox_albums.html',{'valid_error_title':' * This field is required','albums':get_albums})
+				if not song:
+						return render(request,'music/selectbox_albums.html',{'valid_error_audio':' * This field is required','albums':get_albums})
+				if not ''.join(song.content_type.split('/')[1:])  in AUDIO_FILE_TYPES:
+						return render(request,'music/selectbox_albums.html',{'valid_error_audio':'%s Audio files must have mp3,wav,or ogg extension' % ''.join(song.content_type.split('/')[1:]),'albums':get_albums})
+				else:
+						return HttpResponse( ''.join(song.content_type.split('/')[1:]))
+		return render(request,'music/selectbox_albums.html',{'error_message':'Something wnet wrong','albums':get_albums})
+
+

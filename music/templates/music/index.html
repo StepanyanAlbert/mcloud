@@ -1,26 +1,28 @@
 {% extends 'custom/base.html' %}
 {% load i18n%}
+{%block title%}{%trans 'All albums'%}{%endblock%}
 {% block content %}
 
 {% include 'custom/header.html'%}
 <div class="albums-container container-fluid">
 
     <!-- Albums -->
-    <div class="row">
-        <div class="col-sm-12">
-            <h3>{{ user.email}}'s Albums</h3>
+        <div class="col-sm-12 ">
+				<h3>{{user.email}}'s {%trans 'Albums'%}</h3>
         </div>
+		<div class='row'>
         {% if albums %}
             {% for album in albums %}
                 <div class="col-sm-4 col-lg-3">
                     <div class="thumbnail">
                         <a href="{% url 'music:detail' album.id %}">
-								<img src="{{ album.album_logo.url}}" class="img-responsive">
+								<img src="{{ album.album_logo.url}}" class="img-thumbnail img-responsive">
+							
                         </a>
-                 <div class="caption">
-                    <h2>{{ album.album_title }}</h2>
-                       <h4>{{ album.artist }}</h4>
-					   <a href="{% url 'music:detail' album.id %}" class="btn btn-primary btn-sm" role="button">{% trans 'View Details'%}</a>
+       <div class="caption">
+         <h2>{{ album.album_title }}</h2>
+           <h4>{{ album.artist }}</h4>
+			 <a href="{% url 'music:detail' album.id %}" class="btn btn-primary btn-sm" role="button">{% trans 'View Details'%}</a>
 
                            
                             <form action="{% url 'music:delete_album' album.id %}" method="post" style="display: inline;">
@@ -35,11 +37,10 @@
                             <a href="{% url 'music:favorite_album' album.id %}" class="btn btn-default btn-sm btn-favorite" role="button">
                                 <span class="glyphicon glyphicon-star {% if album.is_favorite %}active{% endif %}"></span>
                             </a>
-
-                        </div>
                     </div>
                 </div>
-                {% cycle '' '' '' '' '' '<div class="clearfix visible-lg"></div>' %}
+			</div>
+				{% cycle '' '' '' '' '' '<div class="clearfix visible-lg"></div>' %}
             {% endfor %}
         {% else %}
             <div class="col-sm-12">
@@ -57,7 +58,7 @@
     {% if songs %}
         <div class="row">
             <div class="col-sm-12">
-                <h3>Songs</h3>
+					<h3>{%trans 'Songs'%}</h3>
             </div>
             <div class="col-sm-12">
                 <div class="panel panel-default">
@@ -65,11 +66,11 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th>Song Title</th>
-                                    <th>Artist</th>
-                                    <th>Audio File</th>
-                                    <th>Album</th>
-                                    <th>Favorite</th>
+										<th>{%trans 'Song Title'%}</th>
+										<th>{%trans 'Artist'%}</th>
+										<th>{%trans 'Audio File'%}</th>
+										<th>{%trans 'Album'%}</th>
+										<th>{%trans 'Favorite'%}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -80,7 +81,7 @@
                                         <td>
                                             <a target="_blank" href="{{ song.audio_file.url }}">
                                                 <button type="button" class="btn btn-success btn-xs">
-                                                    <span class="glyphicon glyphicon-play"></span>&nbsp; Play
+														<span class="glyphicon glyphicon-play"></span>&nbsp;{%trans 'Play'%}
                                                 </button>
                                             </a>
                                         </td>

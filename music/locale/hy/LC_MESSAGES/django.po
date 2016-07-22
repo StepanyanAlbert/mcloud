@@ -93,26 +93,72 @@ msgstr "Թարմացնել"
 msgid "Log out"
 msgstr "Դուրս գալ"
 
-#~ msgid "Email address"
-#~ msgstr "Էլեկտրոնային հասցե"
 
-#~ msgid "* This field is required."
-#~ msgstr "* Այս դաշտը պարտադիր է"
+msgid "What is MCloud?"
+msgstr "Ինչ է ՄՔլաուդը՞"
 
-#~ msgid "* Enter a valid email address."
-#~ msgstr "* Մուտքագրեք նոռմալ էլեկտրոնային հասցե"
+msgid "Mcloud  is an app that allows you to upload and store all of your music on the cloud."
+msgstr "ՄՔլաուդը հավելված է , ոռը թույլատրում է ներբեռնել և պահպանել ձեր բոլոր եռծշտությունները ամպում ։Ճ"
 
-#~ msgid "* Enter a whole number."
-#~ msgstr "* Մուտքագրեք ամբողջ թիվ"
+msgid "How do I add music?"
+msgstr "Ինչպես ավելացնեմ երաժշտություն"
 
-#~ msgid "* Please check your math and try again."
-#~ msgstr "* Հաշվարկը սխալ է"
+msgid "First, create a new album by filling out the form on this page. Once an album is created you will be able to add/upload songs."
+msgstr "Սկզբում ստեղծեք նոր ալբոմ լրացնելով դաշտերը այստեղ․Երբ ալբւմը ստեղծվի դուք կկարողանաք ավելացնել/ներբեռնել երգեր"
 
-#~ msgid "Captcha"
-#~ msgstr "Ստուգում"
+msgid "What are some Album logo best practices?"
+msgstr "Որոնք են ալբոմի լոգոյի լավագույն փորձերը"
 
-#~ msgid "Confirm password"
-#~ msgstr "Հաստատել գաղտնաբառը"
+msgid "Have a resolution of 512x512"
+msgstr "Լինեն 512*512 չափերի"
 
-#~ msgid "Recover my password"
-#~ msgstr "Վերականգնել ծածկագիրը"
+msgid "Use common image formats such as .JPG, .GIF, or .PNG"
+msgstr "Օգտագործել նկարների ձևաչափեր ինչպիսիք են .JPG, .GIF, or .PNG"
+
+msgid "Remain under the 2MB limit."
+msgstr "Ունենալ  2 Մբ․ ից փոքր ծավալ"
+
+msgid "Square images look best"
+msgstr "Քառակուսի նկարները ավելի լավ են երևում"
+
+msgid "View All"
+msgstr "Դիտել բոլորը"
+
+msgid "Favorites"
+msgstr "Նախընտրածներ"
+
+msgid "Sorry you don't have songs yet!"
+msgstr "Կներեք,Դուք դեռևս չունեք երգեր"
+
+msgid "Add new song in existing album"
+msgstr "Ավելացնել նոր երգ գոյություն ունեցող ալբոմում"
+
+msgid "Create new album"
+msgstr "Ստեղծել նոր ալբոմ"
+
+msgid "Add a New Album"
+msgstr "Ավելացնել նոր ալբոմ"
+
+msgid "Artist"
+msgstr "Արտիստ"
+
+msgid "Album title"
+msgstr "Ալբոմի վերնագիր"
+
+msgid "Genre"
+msgstr "Ժանր"
+
+msgid "Album logo"
+msgstr "Լոգո"
+
+msgid "Submit"
+msgstr "Հաստատել"
+
+msgid "View Details"
+msgstr "Դիտել մանրամասները"
+
+msgid "All albums"
+msgstr "Բոլոր ալբոմները "
+
+msgid "Albums"
+msgstr "Ալբոմները"

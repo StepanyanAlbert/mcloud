@@ -1,0 +1,39 @@
+{% extends 'custom/base.html' %}
+{%load i18n%}
+{% block title %}{%trans 'Create New Song'%}{% endblock %}
+
+{% block content%}
+{% include 'custom/header.html'%}
+	{%if error_message%}
+		<p class='danger'>{%trans error_message%}<p>
+	{%endif%}
+	{%if albums%}
+	<form class="form-horizontal" role="form" action="{% url 'music:create_song_with_albom_id'%}" method="post" enctype="multipart/form-data">
+		{%csrf_token%}
+<div class="form-group">
+
+ 	<div class="col-sm-12">
+
+	<p><label for="id_song_title">Song title:</label> <input id="id_song_title" maxlength="250" name="song_title" type="text" />  {%if valid_error_title%}<span class='alert-danger'>{{valid_error_title}}</span>{%endif%}</p>
+
+
+	<p><label for="id_audio_file">Audio file:</label> <input id="id_audio_file" name="song_file" type="file" />
+		{%if valid_error_audio%}<span class='alert-danger'>{{valid_error_audio}}</span>{%endif%}</p>
+
+
+		<p><select autocomplete="off" name='album_id'>
+				<option disabled selected>{%trans 'Choose an Album'%}</option>
+		      {%for item in albums%}
+				  <option value='{{item.id}}'>{{item.album_title|title}}</option>
+			  {% endfor%}		  
+	  </select> &nbsp<span>{%if valid_error_album%}<span class='alert-danger'>{{valid_error_album}}</span>{%endif%}
+	     </div>
+		 <p> <button type="submit" class="btn btn-success">Submit</button></p>
+	</div>
+	</form>
+	 {%else%}
+	  			<h2>{%trans 'Sorry you don\'t have albums yet!'%}</h2>
+		<a href='{%url "music:create_album"%}'>{%trans 'Create new album'%}</a>
+	   {%endif%}
+
+{%endblock%}

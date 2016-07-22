@@ -1,33 +1,34 @@
 {% extends 'music/base.html' %}
-{% block title %}All Songs{% endblock %}
-{% block songs_active %}active{% endblock %}
+{%load i18n%}
+{% block title %}{%trans 'All Songs'%}{% endblock %}
 
-{% block body %}
+{% block content%}
+{% include 'custom/header.html'%}
 <div class="container-fluid songs-container">
 
     <div class="row">
         <div class="col-sm-12">
-            <ul class="nav nav-pills" style="margin-bottom: 10px;">
-                <li role="presentation" {% if filter_by == 'all' %}class="active"{% endif %}><a href="{% url 'music:songs' 'all' %}">View All</a></li>
-                <li role="presentation" {% if filter_by == 'favorites' %}class="active"{% endif %}><a href="{% url 'music:songs' 'favorites' %}">Favorites</a></li>
+            <ul class="nav nav-pills" >
+					<li role="presentation" {% if filter_by == 'all' %}class="active"{% endif %}><a href="{% url 'music:songs' 'all' %}">{% trans 'View All' %}</a></li>
+					<li role="presentation" {% if filter_by == 'favorites' %}class="active"{% endif %}><a href="{% url 'music:songs' 'favorites' %}">{% trans 'Favorites'%}</a></li>
             </ul>
         </div>
     </div>
 
     <div class="row">
 
-        <div class="col-sm-12">
-
+      <div class="col-sm-12">
+		{% if song_list%}
             <div class="panel panel-default">
                 <div class="panel-body">
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>Song Title</th>
-                                <th>Artist</th>
-                                <th>Audio File</th>
-                                <th>Album</th>
-                                <th>Favorite</th>
+									<th>{%trans 'Song Title'%}</th>
+									<th>{%trans 'Artist'%}</th>
+									<th>{%trans 'Audio File'%}</th>
+									<th>{%trans 'Album'%}</th>
+									<th>{%trans 'Favorite'%}</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -38,10 +39,10 @@
                                     <td>
                                         <a target="_blank" href="{{ song.audio_file.url }}">
                                             <button type="button" class="btn btn-success btn-xs">
-                                                <span class="glyphicon glyphicon-play"></span>&nbsp; Play
+													<span class="glyphicon glyphicon-play"></span>&nbsp;{% trans 'Play'%}
                                             </button>
                                         </a>
-                                    </td>
+							</td>
                                     <td>
                                         <a href="{% url 'music:detail' song.album.id %}">
                                             <img src="{{ song.album.album_logo.url }}" class="img-responsive" style="width: 20px; float: left; margin-right: 10px;" />
@@ -57,10 +58,13 @@
                     </table>
                 </div>
             </div>
+		{%else%}
+		<h2>{%trans 'Sorry you don\'t have songs yet!'%}</h2>
+		<a href='{%url "music:exist_album"%}'> {%trans 'Add new song in existing album'%}</a>
+		<a href='{%url "music:create_album"%}'>{%trans 'Create new album'%}</a>
 
-        </div>
-
-    </div>
-
+		{%endif%}
+     </div>
+  </div>
 </div>
 {% endblock %}
